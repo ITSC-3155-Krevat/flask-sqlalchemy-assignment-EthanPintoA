@@ -7,8 +7,7 @@ class MovieRepository:
         return Movie.query.all()
 
     def get_movie_by_id(self, movie_id):
-        # TODO get a single movie from the DB using the ID
-        return None
+        return Movie.query.get(movie_id)
 
     def create_movie(self, title, director, rating):
         # TODO create a new movie in the DB
