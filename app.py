@@ -4,6 +4,9 @@ from src.repositories.movie_repository import movie_repository_singleton
 
 app = Flask(__name__)
 
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:abc123@localhost:3306/movies'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
 
 @app.get('/')
 def index():
