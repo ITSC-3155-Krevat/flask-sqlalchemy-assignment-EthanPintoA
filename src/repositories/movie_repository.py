@@ -16,8 +16,8 @@ class MovieRepository:
         return new_movie
 
     def search_movies(self, title):
-        # TODO get all movies matching case insensitive substring (SQL LIKE, use google for how to do with SQLAlchemy)
-        return None
+        movies = Movie.query.filter(Movie.title.ilike(f"%{title}%")).all()
+        return movies
 
 
 # Singleton to be used in other modules
