@@ -1,4 +1,4 @@
-from src.models import Movie
+from src.models import Movie, db
 
 
 class MovieRepository:
@@ -10,8 +10,10 @@ class MovieRepository:
         return Movie.query.get(movie_id)
 
     def create_movie(self, title, director, rating):
-        # TODO create a new movie in the DB
-        return None
+        new_movie = Movie(title=title, director=director, rating=rating)
+        db.session.add(new_movie)
+        db.session.commit()
+        return new_movie
 
     def search_movies(self, title):
         # TODO get all movies matching case insensitive substring (SQL LIKE, use google for how to do with SQLAlchemy)
