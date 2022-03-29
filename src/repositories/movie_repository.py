@@ -1,8 +1,10 @@
+from src.models import Movie
+
+
 class MovieRepository:
 
     def get_all_movies(self):
-        # TODO get all movies from the DB
-        return None
+        return Movie.query.all()
 
     def get_movie_by_id(self, movie_id):
         # TODO get a single movie from the DB using the ID
